@@ -25,6 +25,7 @@ GameObject:
   - 4: {fileID: 427160}
   - 50: {fileID: 5027160}
   - 114: {fileID: 11427160}
+  - 95: {fileID: 9545996}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -131,6 +132,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!95 &9545996
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127160}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f306cf40f1927d84d8dbde7213287b33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11427160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,6 +164,8 @@ MonoBehaviour:
   move_speed: 5
   left_stick: {x: 0, y: 0}
   right_stick: {x: 0, y: 0}
+  playerNumber: 0
+  knockedOut: 0
 --- !u!114 &11461856
 MonoBehaviour:
   m_ObjectHideFlags: 1

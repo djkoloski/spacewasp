@@ -109,6 +109,8 @@ MonoBehaviour:
   move_speed: 5
   left_stick: {x: 0, y: 0}
   right_stick: {x: 0, y: 0}
+  playerNumber: 0
+  knockedOut: 0
 --- !u!4 &38564065
 Transform:
   m_ObjectHideFlags: 0
@@ -202,6 +204,8 @@ MonoBehaviour:
   move_speed: 5
   left_stick: {x: 0, y: 0}
   right_stick: {x: 0, y: 0}
+  playerNumber: 0
+  knockedOut: 0
 --- !u!50 &563473014
 Rigidbody2D:
   m_ObjectHideFlags: 0

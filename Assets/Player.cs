@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
 
 	public string input_name;
 	public Player opponent;
-	public Vector2 move_speed;
+	public Shooter shooter;
+	public float move_speed;
 
 	public Vector2 left_stick;
 	public Vector2 right_stick;
@@ -33,10 +34,12 @@ public class Player : MonoBehaviour
 	{
 		left_stick = new Vector2(Input.GetAxis(input_name + "_lx"), Input.GetAxis(input_name + "_ly"));
 		right_stick = new Vector2(Input.GetAxis(input_name + "_rx"), Input.GetAxis(input_name + "_ry"));
+
+		opponent.shooter.SetAim(right_stick);
 	}
 
 	public void FixedUpdate()
 	{
-		rb.velocity = Vector2.Scale(left_stick, move_speed);
+		rb.velocity = move_speed * left_stick.normalized;
 	}
 }

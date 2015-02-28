@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
 	public Player target;
 	public Arena arena;
 	
+	public float speed;
+	
+	
 	void Awake ()
 	{
 		transform = GetComponent<Transform>();
@@ -27,9 +30,7 @@ public class Enemy : MonoBehaviour
 			setTarget( getArenaIndexFromPosition() );
 		
 		if(!target.knockedOut)
-			do 
-				continue;
-			while (false);
+			 persueTarget();
 	}
 	
 	public void setTarget(int arenaIndex)
@@ -44,5 +45,10 @@ public class Enemy : MonoBehaviour
 			return 0;
 		else
 			return 1;
+	}
+	
+	public void persueTarget()
+	{
+		rb.AddForce( speed * (target.transform.position - transform.position).normalized );
 	}
 }

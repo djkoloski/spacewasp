@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 	public void setTarget(int arenaIndex)
 	{
 		target = Game.player[arenaIndex];
-		arena = Game.arena[arenaIndex];
+		//arena = Game.arena[arenaIndex];
 	}
 	
 	public int getArenaIndexFromPosition()

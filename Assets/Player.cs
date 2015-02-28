@@ -15,10 +15,14 @@ public class Player : MonoBehaviour
 	public Vector2 left_stick;
 	public Vector2 right_stick;
 
+	public int playerNumber;
+	public bool knockedOut;
+
 	public void Awake()
 	{
 		transform = GetComponent<Transform>();
 		rb = GetComponent<Rigidbody2D>();
+		Game.AddPlayer(this, playerNumber);
 	}
 
 	public void Start()

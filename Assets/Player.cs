@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
 	public void Start()
 	{
-
+		knockedOut = false;
 	}
 
 	public void Update()

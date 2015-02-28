@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
 		if(target == null)
 			setTarget( getArenaIndexFromPosition() );
 		
+		Debug.Log(target.playerNumber);
+		
 		if(!target.knockedOut)
 			 persueTarget();
 	}
@@ -49,6 +51,9 @@ public class Enemy : MonoBehaviour
 	
 	public void persueTarget()
 	{
-		rb.AddForce( speed * (target.transform.position - transform.position).normalized );
+		if((target.transform.position - transform.position).magnitude > .3)
+			rb.velocity = speed * ((target.transform.position - transform.position).normalized) ;
+		else
+			rb.velocity = Vector2.zero;
 	}
 }

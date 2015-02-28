@@ -108,6 +108,7 @@ MonoBehaviour:
   move_speed: {x: 1, y: 1}
   left_stick: {x: 0, y: 0}
   right_stick: {x: 0, y: 0}
+  playerNumber: 1
 --- !u!4 &38564065
 Transform:
   m_ObjectHideFlags: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
   move_speed: {x: 1, y: 1}
   left_stick: {x: 0, y: 0}
   right_stick: {x: 0, y: 0}
+  playerNumber: 0
 --- !u!50 &563473014
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -296,6 +298,10 @@ Prefab:
     - target: {fileID: 477880, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
       propertyPath: m_LocalScale.y
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427160, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
+      propertyPath: playerNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}

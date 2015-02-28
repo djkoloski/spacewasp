@@ -38,12 +38,11 @@ public class Player : MonoBehaviour
 		right_stick = new Vector2(Input.GetAxis(input_name + "_rx"), Input.GetAxis(input_name + "_ry"));
 
 		opponent.shooter.SetAim(right_stick);
+		UpdateAnimator();
 	}
 
-	public void FixedUpdate()
+	public void UpdateAnimator()
 	{
-		rb.velocity = move_speed * left_stick;
-
 		bool old_walking = animator.GetBool("walking");
 		int old_facing = animator.GetInteger("facing");
 		bool new_walking = left_stick.magnitude > 0.1f;
@@ -57,5 +56,10 @@ public class Player : MonoBehaviour
 		animator.SetInteger("facing", new_facing);
 		if (old_walking != new_walking || old_facing != new_facing)
 			animator.SetTrigger("transition");
+	}
+
+	public void FixedUpdate()
+	{
+		rb.velocity = move_speed * left_stick;
 	}
 }

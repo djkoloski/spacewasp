@@ -21,27 +21,34 @@ public class Enemy : MonoBehaviour
 	void Start () 
 	{
 		if(target == null)
-			setTarget( getArenaIndexFromPosition() );
+			SetTarget(GetArenaIndexFromPosition() );
+		Game.AddEnemy(gameObject, arena.arenaNumber);
 	}
 	
 	void Update () 
 	{
 		if(target == null)
-			setTarget( getArenaIndexFromPosition() );
+			SetTarget( GetArenaIndexFromPosition() );
 		
 		Debug.Log(target.playerNumber);
 		
 		if(!target.knockedOut)
-			 persueTarget();
+			 PursueTarget();
 	}
 	
-	public void setTarget(int arenaIndex)
+	public void SetTarget(int arenaIndex)
 	{
 		target = Game.player[arenaIndex];
-		//arena = Game.arena[arenaIndex];
+		arena = Game.arena[arenaIndex];
 	}
 	
-	public int getArenaIndexFromPosition()
+	public void SetTarget(GameObject _playerObj, Arena _arena)
+	{
+		target = _playerObj.GetComponent<Player>();
+		arena = _arena;
+	}
+	
+	public int GetArenaIndexFromPosition()
 	{
 		if(transform.position.x < 0)
 			return 0;
@@ -49,11 +56,19 @@ public class Enemy : MonoBehaviour
 			return 1;
 	}
 	
-	public void persueTarget()
+	public void PursueTarget()
 	{
 		if((target.transform.position - transform.position).magnitude > .3)
 			rb.velocity = speed * ((target.transform.position - transform.position).normalized) ;
 		else
+		{
 			rb.velocity = Vector2.zero;
+			Attack();
+		}
+	}
+	
+	public void Attack()
+	{
+		//Debug.Log ("Attack");
 	}
 }

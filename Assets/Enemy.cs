@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
 	private new Transform transform;
 	private Rigidbody2D rb;
+	private SpriteRenderer sr;
 	
 	public Player target;
 	public Arena arena;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
 	{
 		transform = GetComponent<Transform>();
 		rb = GetComponent<Rigidbody2D>();
+		sr = GetComponentInChildren<SpriteRenderer>();
 	}
 	
 	void Start () 
@@ -30,7 +32,10 @@ public class Enemy : MonoBehaviour
 		if(target == null)
 			SetTarget( GetArenaIndexFromPosition() );
 		
-		Debug.Log(target.playerNumber);
+		if(target.transform.position.y < transform.position.y)
+			sr.sortingOrder = -2;
+		else
+			sr.sortingOrder = 0;
 		
 		if(!target.knockedOut)
 			 PursueTarget();

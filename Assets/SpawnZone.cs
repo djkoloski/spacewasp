@@ -25,7 +25,7 @@ public class SpawnZone : MonoBehaviour
 		if (spawnTime <= 0)
 		{
 			spawnTime = spawnInterval;
-			arena.spawnEnemy(transform.position);
+			arena.spawnEnemy(transform.position, false);
 		}
 	}
 }

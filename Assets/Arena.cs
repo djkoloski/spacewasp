@@ -11,6 +11,7 @@ public class Arena : MonoBehaviour
 	public GameObject enemyPrefab;
 	public SpawnZone[] spawnZones;
 	public List<GameObject> enemies;
+	public int maxEnemyCount;
 
 	// awake is reserved for initalization of accessors
 	void Awake ()
@@ -28,7 +29,6 @@ public class Arena : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
 	}
 
 	public void KillAll()
@@ -37,10 +37,12 @@ public class Arena : MonoBehaviour
 			GameObject.Destroy(enemies[i]);
 		enemies = new List<GameObject>();
 	}
-
-	public void spawnEnemy(Vector2 location)
+	
+	public void spawnEnemy(Vector2 location, bool type)
 	{
 		Enemy newEnemy = ((GameObject) Instantiate(enemyPrefab, (Vector3) location, Quaternion.identity)).GetComponent<Enemy>();
 		newEnemy.SetTarget(player, this);
+		newEnemy.type = type;
+		enemies.Add(newEnemy.gameObject);
 	}
 }

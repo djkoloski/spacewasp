@@ -60,6 +60,9 @@ public class Player : MonoBehaviour
 
 	public void FixedUpdate()
 	{
-		rb.velocity = move_speed * left_stick;
+		if(left_stick.magnitude > 0.1f)
+			rb.velocity = move_speed * left_stick;
+		else
+			rb.velocity = Vector2.zero;
 	}
 }

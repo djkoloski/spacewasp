@@ -34,6 +34,17 @@ public static class Game
 	}
 
 	// enemy list
-	public static List<GameObject> enemy;
-
+	public static List<GameObject>[] enemies;
+	public static void AddEnemy(GameObject _enemy, int index)
+	{
+		if(Game.enemies == null)
+		{
+			Game.enemies = new List<GameObject>[2];
+			Game.enemies[0] = new List<GameObject> ();
+			Game.enemies[1] = new List<GameObject> ();
+		}
+		
+		Game.enemies[index].Add(_enemy);
+	}
+	
 }

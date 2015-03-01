@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 	
 	public void PursueTarget()
 	{
-		if((target.transform.position - transform.position).magnitude > ( type ? 1.5 : .3) )
+		if(((Vector2)(target.transform.position - transform.position)).magnitude > ( type ? 1.5 : .3 ) )
 		{
 			rb.velocity = speed * ((target.transform.position - transform.position).normalized) ;
 			animator.SetBool("walking", true);
@@ -149,6 +149,7 @@ public class Enemy : MonoBehaviour
 	{
 		activeHitbox = (GameObject)Instantiate(hitbox, transform.position, Quaternion.identity);
 		activeHitbox.transform.localScale = new Vector3(1.2f, 1.2f);
+		activeHitbox.transform.parent = transform;
 	}
 	
 	public void ExpolsionEnd()
@@ -184,7 +185,7 @@ public class Enemy : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log("hello");
-		if(other.gameObject == target.gameObject)
+		if(other.transform.parent == target.transform)
 		{
 			animator.SetBool("rest", false);
 			target.Damage((type ? 1 : 2), this);

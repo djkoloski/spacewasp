@@ -333,6 +333,10 @@ Prefab:
       propertyPath: opponent
       value: 
       objectReference: {fileID: 563473013}
+    - target: {fileID: 6100004, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
   m_RootGameObject: {fileID: 38564063}
@@ -670,6 +674,8 @@ MonoBehaviour:
   arena: {fileID: 1446691576}
   speed: 1.29999995
   type: 1
+  buffered: 0
+  bufferedDash: {x: 0, y: 0, z: 0}
   hitbox: {fileID: 100000, guid: 2fcf2f42e638ebb4b8e6a38f73c924ec, type: 2}
 --- !u!50 &764654490
 Rigidbody2D:
@@ -916,8 +922,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1105037578}
   - 61: {fileID: 1105037580}
-  - 61: {fileID: 1105037579}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,17 +941,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 563473015}
   m_RootOrder: 4
---- !u!61 &1105037579
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1105037577}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 2.60416651, y: 3.90624976}
-  m_Center: {x: 0, y: 0}
 --- !u!61 &1105037580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -956,7 +950,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1105037577}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.5, y: 2}
   m_Center: {x: 0, y: -.400000006}
 --- !u!61 &1105037581
@@ -1072,7 +1066,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1249189773}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.5, y: 2}
   m_Center: {x: 0, y: -.400000006}
 --- !u!1 &1254217086
@@ -1376,11 +1370,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 112080, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 161856, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100004, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e04e212044f7e6c45bfa812e5af17b0e, type: 2}

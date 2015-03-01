@@ -61,7 +61,21 @@ AnimationClip:
   m_EditorCurves: []
   m_EulerEditorCurves: []
   m_Events:
-  - time: 1.10000002
+  - time: 0
+    functionName: RestStart
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: .600000024
+    functionName: SlideEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.29999995
     functionName: ReAwake
     data: 
     objectReferenceParameter: {fileID: 0}

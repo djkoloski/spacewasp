@@ -143,6 +143,8 @@ MonoBehaviour:
   target: {fileID: 0}
   arena: {fileID: 0}
   speed: 1.29999995
+  type: 0
+  hitbox: {fileID: 100000, guid: 2fcf2f42e638ebb4b8e6a38f73c924ec, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

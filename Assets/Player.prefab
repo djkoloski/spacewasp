@@ -204,8 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c4bf0a86fba2a4db33ad783fa3a4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 127022, guid: 6c75b7823ee24ff4a930a6e3a1a733ae, type: 2}
   radius: .360000014
-  converge_speed: 35
+  convergeSpeed: 10
+  shotSpeed: 1
 --- !u!212 &21261856
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -42,6 +42,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 95: {fileID: 9500000}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -113,6 +114,21 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 2.60416651, y: 3.90624976}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bde015e7fd58d2c4da94e3b09676dad6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +163,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: dcf8395d2bb947c4a994fe22899aedc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43456a2b493ef334780c23b8ef6adaaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class GUI : MonoBehaviour
 {
+	/*
 	public Player player;
 	public Sprite sprite;
 	public Vector2 spacing;
@@ -68,4 +69,5 @@ public class GUI : MonoBehaviour
 	{
 		UpdateHealth();
 	}
-}
+	*/
+} 

@@ -1,11 +1,19 @@
 fileFormatVersion: 2
 guid: d55e243cf71daf744870311ace35abec
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: bombbotBOOMDIE_515x450_18fps_strip8_0
+    21300002: bombbotBOOMDIE_515x450_18fps_strip8_1
+    21300004: bombbotBOOMDIE_515x450_18fps_strip8_2
+    21300006: bombbotBOOMDIE_515x450_18fps_strip8_3
+    21300008: bombbotBOOMDIE_515x450_18fps_strip8_4
+    21300010: bombbotBOOMDIE_515x450_18fps_strip8_5
+    21300012: bombbotBOOMDIE_515x450_18fps_strip8_6
+    21300014: bombbotBOOMDIE_515x450_18fps_strip8_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -25,7 +33,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: 1
-    aniso: 16
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -42,6 +50,86 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_1
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_2
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_3
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_4
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_5
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_6
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bombbotBOOMDIE_515x450_18fps_strip8_7
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -12,6 +12,7 @@ public class Arena : MonoBehaviour
 	public GameObject player;
 	public GameObject enemyPrefab;
 	public List<GameObject> enemies;
+	public int maxEnemyCount;
 
 	// awake is reserved for initalization of accessors
 	void Awake ()
@@ -30,16 +31,18 @@ public class Arena : MonoBehaviour
 	void Update () 
 	{
 		timeSinceLastSpawn += Time.deltaTime;
-		if(timeSinceLastSpawn > spawnRate)
+		if(timeSinceLastSpawn > spawnRate && enemies.Count < maxEnemyCount)
 		{
-			spawnEnemy((Vector2)transform.position + new Vector2(0, 2));
+			spawnEnemy((Vector2)transform.position + new Vector2(0, 2), true);
 			timeSinceLastSpawn = 0f;
 		}
 	}
 	
-	public void spawnEnemy(Vector2 location)
+	public void spawnEnemy(Vector2 location, bool type)
 	{
 		Enemy newEnemy = ((GameObject) Instantiate(enemyPrefab, (Vector3) location, Quaternion.identity)).GetComponent<Enemy>();
 		newEnemy.SetTarget(player, this);
+		newEnemy.type = type;
+		enemies.Add(newEnemy.gameObject);
 	}
 }

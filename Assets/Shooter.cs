@@ -10,6 +10,8 @@ public class Shooter : MonoBehaviour
 	public float radius;
 	public float convergeSpeed;
 	public float shotSpeed;
+	public int bulletBounces;
+	public int bulletSplits;
 	
 	private bool shooting;
 	private float curAngle;
@@ -59,6 +61,8 @@ public class Shooter : MonoBehaviour
 		go.transform.position = transform.position + new Vector3(Mathf.Cos(curAngle), Mathf.Sin(curAngle), 0.0f) * 0.2f;
 		Bullet b = go.GetComponent<Bullet>();
 		b.direction = new Vector2(Mathf.Cos(curAngle), Mathf.Sin(curAngle));
+		b.bounces = bulletBounces;
+		b.splits = bulletSplits;
 
 		shotTimeout = shotSpeed;
 	}

@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 	public GameObject spawnPoint;
 	public float invulnTime;
 	public float deathTime;
+	public Arena arena;
 
 	public bool knockedOut
 	{
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
 
 	private Vector2 leftStick;
 	private Vector2 rightStick;
+	private int kills;
 
 	private int siegeLevel;
 	private float siegeTime;
@@ -120,7 +122,18 @@ public class Player : MonoBehaviour
 		UpdateAnimator();
 
 		if (Input.GetKeyDown(KeyCode.Space))
-			Damage(1);
+			Damage(1, null);
+		else if (Input.GetKeyDown(KeyCode.A))
+		{
+			heldPowerup = Powerup.Rebound;
+			heldPowerupLevel = 2;
+			Debug.Log("POWERUP GET");
+		}
+		else if (Input.GetButtonDown(inputName + "_powerup"))
+		{
+			UsePowerup();
+			Debug.Log("POWERUP USE");
+		}
 	}
 
 	public void UpdateAnimator()
@@ -162,8 +175,24 @@ public class Player : MonoBehaviour
 				heldPowerupLevel = 0;
 				transform.position = spawnPoint.transform.position;
 				invulnLeft = invulnTime;
+				arena.KillAll();
 			}
 		}
+
+		if (siegeTime > 0)
+			siegeTime -= Time.deltaTime;
+		if (ironKneeTime > 0)
+			ironKneeTime -= Time.deltaTime;
+
+		if (reboundTime > 0)
+			reboundTime -= Time.deltaTime;
+		else
+			opponent.shooter.bulletBounces = 0;
+
+		if (fissionTime > 0)
+			fissionTime -= Time.deltaTime;
+		else
+			opponent.shooter.bulletSplits = 0;
 	}
 
 	public void FixedUpdate()
@@ -174,10 +203,60 @@ public class Player : MonoBehaviour
 			rb.velocity = Vector2.zero;
 	}
 
-	public void Damage(int damage)
+	public void UsePowerup()
+	{
+		switch (heldPowerup)
+		{
+			case Powerup.None:
+				break;
+			case Powerup.Siege:
+				// alert the arena
+				break;
+			case Powerup.GrabbyClaw:
+				heldPowerup = opponent.heldPowerup;
+				opponent.heldPowerup = Powerup.None;
+				opponent.heldPowerupLevel = 0;
+				break;
+			case Powerup.IronE:
+				// alert the arena
+				break;
+			case Powerup.IronKnee:
+				ironKneeTime = 5.0f + 1.0f * heldPowerupLevel;
+				ironKneeLevel = heldPowerupLevel;
+
+				heldPowerup = Powerup.None;
+				heldPowerupLevel = 0;
+				break;
+			case Powerup.Rebound:
+				opponent.shooter.bulletBounces = 1 + heldPowerupLevel;
+				reboundTime = 6.0f + 2.5f * heldPowerupLevel;
+				reboundLevel = heldPowerupLevel;
+
+				heldPowerup = Powerup.None;
+				heldPowerupLevel = 0;
+				break;
+			case Powerup.Fission:
+				opponent.shooter.bulletSplits = heldPowerupLevel;
+				fissionTime = 3.5f + 0.75f * heldPowerupLevel;
+				fissionLevel = heldPowerupLevel;
+
+				heldPowerup = Powerup.None;
+				heldPowerupLevel = 0;
+				break;
+			default:
+				break;
+		}
+	}
+
+	public void Damage(int damage, Enemy enemy)
 	{
 		if (health <= 0 || invulnLeft > 0)
 			return;
+
+		if (enemy != null && ironKneeTime > 0)
+		{
+			// enemy.Damage(ironKneeLevel, this);
+		}
 
 		if (health <= damage)
 		{

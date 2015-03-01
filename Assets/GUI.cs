@@ -8,13 +8,15 @@ public class GUI : MonoBehaviour
 	/*
 	public Player player;
 	public Sprite sprite;
+	public Vector2 offset;
 	public Vector2 spacing;
+	public bool flipped;
 
 	private GameObject[] healthSprites;
 
 	public void Awake()
 	{
-		
+
 	}
 
 	public void Start()
@@ -44,11 +46,20 @@ public class GUI : MonoBehaviour
 			hs.transform.SetParent(transform);
 			hs.transform.localScale = Vector3.one;
 
-			rt.anchorMin = new Vector2(0, 1);
-			rt.anchorMax = new Vector2(0, 1);
-			rt.anchoredPosition = new Vector2((spacing.x + sprite.texture.width) * i + spacing.x, spacing.y);
+			if (!flipped)
+			{
+				rt.anchorMin = new Vector2(0, 1);
+				rt.anchorMax = new Vector2(0, 1);
+				rt.pivot = new Vector2(0, 1);
+			}
+			else
+			{
+				rt.anchorMin = new Vector2(1, 1);
+				rt.anchorMax = new Vector2(1, 1);
+				rt.pivot = new Vector2(1, 1);
+			}
+			rt.anchoredPosition = new Vector2(spacing.x * i + offset.x, spacing.y * i + offset.y);
 			rt.sizeDelta = new Vector2(sprite.texture.width, sprite.texture.height);
-			rt.pivot = new Vector2(0, 1);
 
 			im.sprite = sprite;
 		}

@@ -98,6 +98,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxRadius: 2
+  lookAhead: .5
 --- !u!124 &12476080
 Behaviour:
   m_ObjectHideFlags: 1

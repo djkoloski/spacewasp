@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
 	public GameObject target;
 	public AnimationCurve followCurve;
 	public float maxRadius;
+	public float lookAhead;
 
 	public void Awake()
 	{
@@ -17,7 +18,8 @@ public class CameraFollow : MonoBehaviour
 
 	public void FixedUpdate()
 	{
-		Vector3 diff = target.transform.position - transform.position;
+		Vector3 poi = target.transform.position + new Vector3(target.GetComponent<Rigidbody2D>().velocity.x, target.GetComponent<Rigidbody2D>().velocity.y, 0.0f) * lookAhead;
+		Vector3 diff = poi - transform.position;
 		diff.z = 0;
 		float dist = diff.magnitude;
 		if (dist > maxRadius)

@@ -7,13 +7,13 @@ public class Shooter : MonoBehaviour
 	public float radius;
 	public float converge_speed;
 	
-	private float cur_angle;
-	private float to_angle;
+	private float curAngle;
+	private float toAngle;
 
 	public void Awake()
 	{
-		cur_angle = 0;
-		to_angle = 0;
+		curAngle = 0;
+		toAngle = 0;
 	}
 
 	public void Start()
@@ -23,19 +23,19 @@ public class Shooter : MonoBehaviour
 
 	public void Update()
 	{
-		cur_angle %= 2.0f * Mathf.PI;
-		to_angle %= 2.0f * Mathf.PI;
+		curAngle %= 2.0f * Mathf.PI;
+		toAngle %= 2.0f * Mathf.PI;
 
-		float nearest_angle = (to_angle < cur_angle ? to_angle + 2.0f * Mathf.PI : to_angle - 2.0f * Mathf.PI);
-		if (Mathf.Abs(cur_angle - to_angle) < Mathf.Abs(cur_angle - nearest_angle))
-			nearest_angle = to_angle;
+		float nearest_angle = (toAngle < curAngle ? toAngle + 2.0f * Mathf.PI : toAngle - 2.0f * Mathf.PI);
+		if (Mathf.Abs(curAngle - toAngle) < Mathf.Abs(curAngle - nearest_angle))
+			nearest_angle = toAngle;
 
-		cur_angle = Mathf.Lerp(cur_angle, nearest_angle, Time.deltaTime * converge_speed);
-		transform.localPosition = new Vector3(Mathf.Cos(cur_angle), Mathf.Sin(cur_angle), 0.0f) * radius;
+		curAngle = Mathf.Lerp(curAngle, nearest_angle, Time.deltaTime * converge_speed);
+		transform.localPosition = new Vector3(Mathf.Cos(curAngle), Mathf.Sin(curAngle), 0.0f) * radius;
 	}
 
 	public void SetAim(Vector2 direction)
 	{
-		to_angle = Mathf.Atan2(direction.y, direction.x);
+		toAngle = Mathf.Atan2(direction.y, direction.x);
 	}
 }

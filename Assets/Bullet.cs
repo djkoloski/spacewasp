@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
 	public float speed;
 	public Vector2 direction;
 	public int bounces;
+	public int splits;
 
 	public void Awake()
 	{
@@ -43,8 +44,11 @@ public class Bullet : MonoBehaviour
 
 		GameObject go = collision.gameObject;
 
-		if (go.tag == "Wall")
-			GameObject.Destroy(gameObject);
+		if (go.tag == "Enemy")
+		{
+			Enemy enemy = go.GetComponent<Enemy>();
+
+		}
 		else
 		{
 			if (bounces == 0)

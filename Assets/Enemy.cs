@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : MonoBehaviour 
 {
@@ -11,7 +12,6 @@ public class Enemy : MonoBehaviour
 	public Arena arena;
 	
 	public float speed;
-	
 	
 	void Awake ()
 	{

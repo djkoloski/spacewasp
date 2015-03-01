@@ -158,14 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0b2548299ab284b879b3da6d8bf45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input_name: player1
+  playerNumber: 0
   opponent: {fileID: 0}
   shooter: {fileID: 11461856}
-  move_speed: 5
-  left_stick: {x: 0, y: 0}
-  right_stick: {x: 0, y: 0}
-  playerNumber: 0
-  knockedOut: 0
+  moveSpeed: 2
+  maxHealth: 5
+  health: 3
 --- !u!114 &11461856
 MonoBehaviour:
   m_ObjectHideFlags: 1

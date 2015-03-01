@@ -8,16 +8,31 @@ public class Player : MonoBehaviour
 	private Rigidbody2D rb;
 	private Animator animator;
 
-	public string input_name;
+	public int playerNumber;
 	public Player opponent;
 	public Shooter shooter;
-	public float move_speed;
+	public float moveSpeed;
+	public int maxHealth;
+	public int health;
 
-	public Vector2 left_stick;
-	public Vector2 right_stick;
+	public bool knockedOut
+	{
+		get
+		{
+			return health <= 0;
+		}
+	}
 
-	public int playerNumber;
-	public bool knockedOut;
+	private Vector2 leftStick;
+	private Vector2 rightStick;
+
+	public string inputName
+	{
+		get
+		{
+			return "player" + (playerNumber + 1);
+		}
+	}
 
 	public void Awake()
 	{
@@ -29,15 +44,16 @@ public class Player : MonoBehaviour
 
 	public void Start()
 	{
-		knockedOut = false;
+		animator.SetBool("player", playerNumber == 1);
+		animator.SetTrigger("transition");
 	}
 
 	public void Update()
 	{
-		left_stick = new Vector2(Input.GetAxis(input_name + "_lx"), Input.GetAxis(input_name + "_ly"));
-		right_stick = new Vector2(Input.GetAxis(input_name + "_rx"), Input.GetAxis(input_name + "_ry"));
+		leftStick = new Vector2(Input.GetAxis(inputName + "_lx"), Input.GetAxis(inputName + "_ly"));
+		rightStick = new Vector2(Input.GetAxis(inputName + "_rx"), Input.GetAxis(inputName + "_ry"));
 
-		opponent.shooter.SetAim(right_stick);
+		opponent.shooter.SetAim(rightStick);
 		UpdateAnimator();
 	}
 
@@ -45,7 +61,7 @@ public class Player : MonoBehaviour
 	{
 		bool old_walking = animator.GetBool("walking");
 		int old_facing = animator.GetInteger("facing");
-		bool new_walking = left_stick.magnitude > 0.1f;
+		bool new_walking = leftStick.magnitude > 0.1f;
 		int new_facing = 0;
 		if (Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y))
 			new_facing = (rb.velocity.x > 0 ? 0 : 2);
@@ -60,6 +76,6 @@ public class Player : MonoBehaviour
 
 	public void FixedUpdate()
 	{
-		rb.velocity = move_speed * left_stick;
+		rb.velocity = moveSpeed * leftStick;
 	}
 }

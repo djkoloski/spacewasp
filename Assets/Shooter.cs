@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Shooter : MonoBehaviour
 {
+	private SpriteRenderer sr;
+
 	public float radius;
 	public float converge_speed;
 	
@@ -12,6 +14,7 @@ public class Shooter : MonoBehaviour
 
 	public void Awake()
 	{
+		sr = GetComponent<SpriteRenderer>();
 		curAngle = 0;
 		toAngle = 0;
 	}
@@ -32,6 +35,11 @@ public class Shooter : MonoBehaviour
 
 		curAngle = Mathf.Lerp(curAngle, nearest_angle, Time.deltaTime * converge_speed);
 		transform.localPosition = new Vector3(Mathf.Cos(curAngle), Mathf.Sin(curAngle), 0.0f) * radius;
+
+		if ((curAngle > 0 && curAngle < Mathf.PI) || curAngle < -Mathf.PI)
+			sr.sortingOrder = -2;
+		else
+			sr.sortingOrder = 0;
 	}
 
 	public void SetAim(Vector2 direction)
